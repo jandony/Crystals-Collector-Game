@@ -37,10 +37,6 @@ var crystal4;
 
 // Create a function to start/reset the game
     function reset(){
-        // update wins on the page
-        wins = 0;
-        // update losses on the page
-        losses = 0;
         // create a new random number
         goal = Math.floor(Math.random() * 500)
         // update this on the page
@@ -64,13 +60,15 @@ var crystal4;
 // Create a function to test win/lose
     function test() {
         if (score === goal) {
-            win++;
+            wins++;
+            $("#wins").text(wins);
             $("#score").text("You Win!");
             // call reset function
             reset();
         }
         if (score > goal) {
             losses++;
+            $("#losses").text(losses);
             $("#score").text("You Suck!");
             // call reset function
             reset();
@@ -83,10 +81,47 @@ var crystal4;
     // Create a click event for crystal 1
         $("#crystal-1").on("click", function (){
             // Grab the value of crystal that was clicked on
-            console.log(crystal1);
+            // console.log(crystal1);
             // Add that to the player's score
             $("#score").text(score + crystal1);
+            score += crystal1;
             
             // Call test function
             test();
         });
+
+    // Create a click event for crystal 2
+    $("#crystal-2").on("click", function (){
+        // Grab the value of crystal that was clicked on
+        // console.log(crystal2);
+        // Add that to the player's score
+        $("#score").text(score + crystal2);
+        score += crystal2;
+        
+        // Call test function
+        test();
+    });
+
+    // Create a click event for crystal 3
+    $("#crystal-3").on("click", function (){
+        // Grab the value of crystal that was clicked on
+        // console.log(crystal3);
+        // Add that to the player's score
+        $("#score").text(score + crystal3);
+        score += crystal3;
+        
+        // Call test function
+        test();
+    });
+
+    // Create a click event for crystal 4
+    $("#crystal-4").on("click", function (){
+        // Grab the value of crystal that was clicked on
+        // console.log(crystal4);
+        // Add that to the player's score
+        $("#score").text(score + crystal4);
+        score += crystal4;
+        
+        // Call test function
+        test();
+    });
